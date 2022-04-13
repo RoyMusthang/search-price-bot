@@ -1,0 +1,12 @@
+{
+  "name": "puppeteer-exercise",
+  "version": "1.0.0",
+  "description": "personal workout with the puppeteer library",
+  "main": "index.js",
+  "author": "Josué Lobo",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "puppeteer": "^13.5.2"
+  }
+}
