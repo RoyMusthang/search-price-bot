@@ -12,6 +12,11 @@ async function main(item) {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   await page.goto(site);
+  await page.type('.nav-search-input', item, { delay: 100 });
+  await Promise.all([
+    page.waitForNavigation(),
+    page.click('.nav-search-btn')
+  ])
   await browser.close();
 }
 
