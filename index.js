@@ -16,7 +16,12 @@ async function main(item) {
   await Promise.all([
     page.waitForNavigation(),
     page.click('.nav-search-btn')
-  ])
+  ]);
+  // mais simples clicar de item em item do que tratar todos os dados da home
+  const links = await page.$$eval('.ui-search-result__image > a', el => el.map(link => link.href));
+  for (let link of links) {
+    console.log(link)
+  }
   await browser.close();
 }
 
