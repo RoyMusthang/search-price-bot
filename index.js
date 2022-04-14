@@ -10,7 +10,6 @@ async function main(item) {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   await page.goto(`https://www.mercadolivre.com.br/${item}`);
-  await page.screenshot({ path: 'ma.png' });
   await browser.close();
 }
 
