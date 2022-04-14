@@ -20,8 +20,15 @@ async function main(item) {
   // mais simples clicar de item em item do que tratar todos os dados da home
   const links = await page.$$eval('.ui-search-result__image > a', el => el.map(link => link.href));
   for (let link of links) {
-    console.log(link)
+    await page.goto(link)
+    await page.waitForSelector('.ui-pdp-title')
+    const title = await page.$eval('.ui-pdp-title', e => e.innerText);
+    const price = await page.$eval('.andes-money-amount__fraction', e => e.innerText);
+
+    const data = { title, price };
+    dataList.push(data)
   }
+  await writeFile(dataList)
   await browser.close();
 }
 
