@@ -32,4 +32,8 @@ async function main(item) {
   await browser.close();
 }
 
+async function writeFile(data) {
+  await fs.writeFile('./dados.json', JSON.stringify(data, null, 2))
+}
+
 inputUser()
